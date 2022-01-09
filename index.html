@@ -476,7 +476,7 @@
 					for (letter of this.tiles[this.activeRow].letters) {
 						let current = letter.value;
 
-						console.log(letter.value == this.word.charAt(i));
+
 
 						if (letter.value === this.word.charAt(i)) {
 							letter.state = true;
@@ -580,7 +580,7 @@
 							return response.json()
 						})
 						.then(data => this.word = data.words[Math.floor(Math.random() * data.words.length)])
-						.then(() => console.log(this.word))
+						.then(() => 
 				},
 
 				getDefinition() {
@@ -590,13 +590,13 @@
 							return response.json()
 						})
 						.then(data => this.definition = data[0].shortdef[0])
-						.then(() => console.log(this.definition))
+						.then(() => 
 				},
 
 				init() {
 					this.tiles = this.tilesTemplate;
 					this.getWords();
-					console.log("what are you looking in here for, cheater?");
+
 				}
 			}));
 		});

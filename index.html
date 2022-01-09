@@ -3,15 +3,11 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible"
-		content="IE=edge" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Document</title>
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0">
-	<script defer
-		src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style>
 		[x-cloak] {
@@ -20,52 +16,49 @@
 	</style>
 </head>
 
-<body class="bg-gray-800 p-4 relative"
-	x-data="app()">
-	<div class="space-y-2 mt-4 flex flex-col items-center justify-center">
+<body class="bg-gray-800 p-4 relative" x-data="app()">
+	<button @click="showInfo = true" class="absolute top-0 right-0 text-white/50 border-none bg-transparent mt-4 mr-6">
+		<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+				d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+		</svg>
+	</button>
+
+	<!-- Tiles -->
+	<div class="space-y-2 mt-4 flex flex-col items-center justify-center mt-12">
 		<template x-for="row in tiles">
 			<div class="row flex no-wrap space-x-2">
-				<span x-text="row.letters[0].value"
-					:class="{
+				<span x-text="row.letters[0].value" :class="{
 						'bg-green-500': row.letters[0].state === true, 
 						'bg-orange-500': row.letters[0].state == 'almost', 
 						'bg-gray-900': row.letters[0].state === false
-					}"
-					class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
-				<span x-text="row.letters[1].value"
-					:class="{
+					}" class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
+				<span x-text="row.letters[1].value" :class="{
 						'bg-green-500': row.letters[1].state === true, 
 						'bg-orange-500': row.letters[1].state == 'almost', 
 						'bg-gray-900': row.letters[1].state === false
-					}"
-					class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
-				<span x-text="row.letters[2].value"
-					:class="{
+					}" class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
+				<span x-text="row.letters[2].value" :class="{
 						'bg-green-500': row.letters[2].state === true, 
 						'bg-orange-500': row.letters[2].state == 'almost', 
 						'bg-gray-900': row.letters[2].state === false
-					}"
-					class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
-				<span x-text="row.letters[3].value"
-					:class="{
+					}" class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
+				<span x-text="row.letters[3].value" :class="{
 						'bg-green-500': row.letters[3].state === true, 
 						'bg-orange-500': row.letters[3].state == 'almost', 
 						'bg-gray-900': row.letters[3].state === false
-					}"
-					class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
-				<span x-text="row.letters[4].value"
-					:class="{
+					}" class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
+				<span x-text="row.letters[4].value" :class="{
 						'bg-green-500': row.letters[4].state === true, 
 						'bg-orange-500': row.letters[4].state == 'almost', 
 						'bg-gray-900': row.letters[4].state === false
-					}"
-					class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
+					}" class="h-16 w-16 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold"></span>
 			</div>
 		</template>
 	</div>
 
-	<div class="fixed bottom-0 left-0 w-full p-2 space-y-2"
-		id="keyboard">
+	<!-- Keyboard -->
+	<div class="fixed bottom-0 left-0 w-full p-2 space-y-2" id="keyboard">
 		<div class="flex items-center justify-center space-x-2">
 			<button
 				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-12 flex items-center justify-center"
@@ -74,8 +67,7 @@
 					'bg-orange-500': letters['q'] == 'almost',
 					'bg-gray-800': letters['q'] === false,
 					'bg-gray-600': letters['q'] === null
-				}"
-				@click="input('q')">
+				}" @click="input('q')">
 				q
 			</button>
 			<button
@@ -85,8 +77,7 @@
 					'bg-orange-500': letters['w'] == 'almost',
 					'bg-gray-800': letters['w'] === false,
 					'bg-gray-600': letters['w'] === null
-				}"
-				@click="input('w')">
+				}" @click="input('w')">
 				w
 			</button>
 			<button
@@ -96,8 +87,7 @@
 					'bg-orange-500': letters['e'] == 'almost',
 					'bg-gray-800': letters['e'] === false,
 					'bg-gray-600': letters['e'] === null
-				}"
-				@click="input('e')">
+				}" @click="input('e')">
 				e
 			</button>
 			<button
@@ -107,8 +97,7 @@
 					'bg-orange-500': letters['r'] == 'almost',
 					'bg-gray-800': letters['r'] === false,
 					'bg-gray-600': letters['r'] === null
-				}"
-				@click="input('r')">
+				}" @click="input('r')">
 				r
 			</button>
 			<button
@@ -118,8 +107,7 @@
 					'bg-orange-500': letters['t'] == 'almost',
 					'bg-gray-800': letters['t'] === false,
 					'bg-gray-600': letters['t'] === null
-				}"
-				@click="input('t')">
+				}" @click="input('t')">
 				t
 			</button>
 			<button
@@ -129,8 +117,7 @@
 					'bg-orange-500': letters['y'] == 'almost',
 					'bg-gray-800': letters['y'] === false,
 					'bg-gray-600': letters['y'] === null
-				}"
-				@click="input('y')">
+				}" @click="input('y')">
 				y
 			</button>
 			<button
@@ -140,8 +127,7 @@
 					'bg-orange-500': letters['u'] == 'almost',
 					'bg-gray-800': letters['u'] === false,
 					'bg-gray-600': letters['u'] === null
-				}"
-				@click="input('u')">
+				}" @click="input('u')">
 				u
 			</button>
 			<button
@@ -151,8 +137,7 @@
 					'bg-orange-500': letters['i'] == 'almost',
 					'bg-gray-800': letters['i'] === false,
 					'bg-gray-600': letters['i'] === null
-				}"
-				@click="input('i')">
+				}" @click="input('i')">
 				i
 			</button>
 			<button
@@ -162,8 +147,7 @@
 					'bg-orange-500': letters['o'] == 'almost',
 					'bg-gray-800': letters['o'] === false,
 					'bg-gray-600': letters['o'] === null
-				}"
-				@click="input('o')">
+				}" @click="input('o')">
 				o
 			</button>
 			<button
@@ -173,8 +157,7 @@
 					'bg-orange-500': letters['p'] == 'almost',
 					'bg-gray-800': letters['p'] === false,
 					'bg-gray-600': letters['p'] === null
-				}"
-				@click="input('p')">
+				}" @click="input('p')">
 				p
 			</button>
 		</div>
@@ -186,8 +169,7 @@
 					'bg-orange-500': letters['a'] == 'almost',
 					'bg-gray-800': letters['a'] === false,
 					'bg-gray-600': letters['a'] === null
-				}"
-				@click="input('a')">
+				}" @click="input('a')">
 				a
 			</button>
 			<button
@@ -197,8 +179,7 @@
 					'bg-orange-500': letters['s'] == 'almost',
 					'bg-gray-800': letters['s'] === false,
 					'bg-gray-600': letters['s'] === null
-				}"
-				@click="input('s')">
+				}" @click="input('s')">
 				s
 			</button>
 			<button
@@ -208,8 +189,7 @@
 					'bg-orange-500': letters['d'] == 'almost',
 					'bg-gray-800': letters['d'] === false,
 					'bg-gray-600': letters['d'] === null
-				}"
-				@click="input('d')">
+				}" @click="input('d')">
 				d
 			</button>
 			<button
@@ -219,8 +199,7 @@
 					'bg-orange-500': letters['f'] == 'almost',
 					'bg-gray-800': letters['f'] === false,
 					'bg-gray-600': letters['f'] === null
-				}"
-				@click="input('f')">
+				}" @click="input('f')">
 				f
 			</button>
 			<button
@@ -230,8 +209,7 @@
 					'bg-orange-500': letters['g'] == 'almost',
 					'bg-gray-800': letters['g'] === false,
 					'bg-gray-600': letters['g'] === null
-				}"
-				@click="input('g')">
+				}" @click="input('g')">
 				g
 			</button>
 			<button
@@ -241,8 +219,7 @@
 					'bg-orange-500': letters['h'] == 'almost',
 					'bg-gray-800': letters['h'] === false,
 					'bg-gray-600': letters['h'] === null
-				}"
-				@click="input('h')">
+				}" @click="input('h')">
 				h
 			</button>
 			<button
@@ -252,8 +229,7 @@
 					'bg-orange-500': letters['j'] == 'almost',
 					'bg-gray-800': letters['j'] === false,
 					'bg-gray-600': letters['j'] === null
-				}"
-				@click="input('j')">
+				}" @click="input('j')">
 				j
 			</button>
 			<button
@@ -263,8 +239,7 @@
 					'bg-orange-500': letters['k'] == 'almost',
 					'bg-gray-800': letters['k'] === false,
 					'bg-gray-600': letters['k'] === null
-				}"
-				@click="input('k')">
+				}" @click="input('k')">
 				k
 			</button>
 			<button
@@ -274,14 +249,12 @@
 					'bg-orange-500': letters['l'] == 'almost',
 					'bg-gray-800': letters['l'] === false,
 					'bg-gray-600': letters['l'] === null
-				}"
-				@click="input('l')">
+				}" @click="input('l')">
 				l
 			</button>
 		</div>
 		<div class="flex items-center justify-center space-x-2">
-			<button class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-16 h-12"
-				@click="enter()">
+			<button class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-16 h-12" @click="enter()">
 				enter
 			</button>
 			<button
@@ -291,8 +264,7 @@
 					'bg-orange-500': letters['z'] == 'almost',
 					'bg-gray-800': letters['z'] === false,
 					'bg-gray-600': letters['z'] === null
-				}"
-				@click="input('z')">
+				}" @click="input('z')">
 				z
 			</button>
 			<button
@@ -302,8 +274,7 @@
 					'bg-orange-500': letters['x'] == 'almost',
 					'bg-gray-800': letters['x'] === false,
 					'bg-gray-600': letters['x'] === null
-				}"
-				@click="input('x')">
+				}" @click="input('x')">
 				x
 			</button>
 			<button
@@ -313,8 +284,7 @@
 					'bg-orange-500': letters['c'] == 'almost',
 					'bg-gray-800': letters['c'] === false,
 					'bg-gray-600': letters['c'] === null
-				}"
-				@click="input('c')">
+				}" @click="input('c')">
 				c
 			</button>
 			<button
@@ -324,8 +294,7 @@
 					'bg-orange-500': letters['v'] == 'almost',
 					'bg-gray-800': letters['v'] === false,
 					'bg-gray-600': letters['v'] === null
-				}"
-				@click="input('v')">
+				}" @click="input('v')">
 				v
 			</button>
 			<button
@@ -335,8 +304,7 @@
 					'bg-orange-500': letters['b'] == 'almost',
 					'bg-gray-800': letters['b'] === false,
 					'bg-gray-600': letters['b'] === null
-				}"
-				@click="input('b')">
+				}" @click="input('b')">
 				b
 			</button>
 			<button
@@ -346,8 +314,7 @@
 					'bg-orange-500': letters['n'] == 'almost',
 					'bg-gray-800': letters['n'] === false,
 					'bg-gray-600': letters['n'] === null
-				}"
-				@click="input('n')">
+				}" @click="input('n')">
 				n
 			</button>
 			<button
@@ -357,49 +324,108 @@
 					'bg-orange-500': letters['m'] == 'almost',
 					'bg-gray-800': letters['m'] === false,
 					'bg-gray-600': letters['m'] === null
-				}"
-				@click="input('m')">
+				}" @click="input('m')">
 				m
 			</button>
 			<button
 				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-16 h-12 flex items-center justify-center"
 				@click="backspace()">
-				<svg xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6"
-					fill="none"
-					viewBox="0 0 24 24"
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
-					<path stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
 				</svg>
 			</button>
 		</div>
 	</div>
 
-	<div x-show="endGame"
-		x-cloak
+	<!-- End Game -->
+	<div x-show="endGame" x-cloak
 		class="fixed h-screen w-screen top-0 left-0 bg-slate-900 bg-opacity-90 flex flex-col space-y-12 items-center justify-center text-white">
 		<div class="bg-gray-900 p-8 rounded-lg shadow-lg text-center max-w-lg">
-			<p class="text-5xl font-bold"
-				x-show="won">You Win!</p>
-			<p class="text-5xl font-bold"
-				x-show="!won">Game Over</p>
-			<p class="text-2xl mt-8 font-bold"
-				x-text="word"
-				x-show="!won"></p>
-			<p class="text-2xl opacity-75 max-w-sm mt-3 font-thin"
-				x-text="definition"
-				x-show="!won"></p>
-			<button @click="reset()"
-				class="bg-orange-500 px-5 py-3 rounded-md mt-8">Play Again</button>
+			<p class="text-5xl font-bold" x-show="won">You Win!</p>
+			<p class="text-5xl font-bold" x-show="!won">Game Over</p>
+			<p class="text-2xl mt-8 font-bold" x-text="word" x-show="!won"></p>
+			<p class="text-2xl opacity-75 max-w-sm mt-3 font-thin" x-text="definition" x-show="!won"></p>
+			<button @click="reset()" class="bg-orange-500 px-5 py-3 rounded-md mt-8">Play Again</button>
 		</div>
 	</div>
 
+	<!-- Info -->
+	<div x-show="showInfo">
+		<div x-cloak
+			class="bg-gray-900 p-8 fixed z-20 h-screen w-screen top-0 left-0 bg-slate-900  items-center justify-center text-white">
+
+			<div class="max-w-screen-md mx-auto">
+				<p class="text-5xl font-bold">How to play</p>
+				<p class="mt-8">Guess the word in 6 tries.</p>
+				<p class="mt-3">After each guess, the color of the tiles will change to show how close your guess was to
+					the word.
+				</p>
+
+				<div class="row flex no-wrap space-x-2 mt-8">
+					<span
+						class="h-10 w-10 bg-green-500 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">W</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">E</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">A</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">R</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">Y</span>
+
+				</div>
+				<p class="mt-3">The letter W is in the word and in the correct spot.</p>
+
+				<div class="row flex no-wrap space-x-2 mt-8">
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">P</span>
+					<span
+						class="h-10 w-10 bg-orange-500 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">I</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">L</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">O</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">T</span>
+
+				</div>
+				<p class="mt-3">The letter L is in the word but in the wrong spot.</p>
+
+				<div class="row flex no-wrap space-x-2 mt-8">
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">V</span>
+					<span
+						class="h-10 w-10 bg-orange-500 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">A</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">G</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">U</span>
+					<span
+						class="h-10 w-10 bg-gray-900 border border-gray-500 flex items-center justify-center text-white text-3xl font-bold">E</span>
+
+				</div>
+				<p class="mt-3">The letter U is not in the word in any spot.</p>
+
+				<p class="mt-8 opacity-75">Created by <a href="https://twitter.com/Joey_Farruggio" target="_blank">Joey
+						Farruggio</a>
+					simply as a fun coding exercise. This game was modeled after <a
+						href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>, which only allows players to play one
+					word
+					per day.
+				</p>
+
+				<div class="text-center">
+					<button @click="showInfo = false" class="bg-orange-500 px-5 py-3 rounded-md mt-8">Play</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 		document.addEventListener("alpine:init", () => {
 			Alpine.data("app", () => ({
+				showInfo: true,
 				endGame: false,
 				won: false,
 				word: null,

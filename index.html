@@ -8,12 +8,14 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0" />
 	<title>Document</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
 	<script defer
 		src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-800 p-4"
+<body class="bg-gray-800 p-4 relative"
 	x-data="app()">
 	<div class="space-y-2 mt-4 flex flex-col items-center justify-center">
 		<template x-for="row in tiles">
@@ -57,8 +59,9 @@
 		</template>
 	</div>
 
-	<div id="keyboard"
-		class="space-y-2 mt-40">
+	<div class="fixed bottom-0 left-0 w-full p-4 space-y-2"
+		id="keyboard"
+		class="">
 		<div class="flex items-center justify-center space-x-2">
 			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{

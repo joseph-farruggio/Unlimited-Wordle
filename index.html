@@ -13,6 +13,11 @@
 	<script defer
 		src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		[x-cloak] {
+			display: none;
+		}
+	</style>
 </head>
 
 <body class="bg-gray-800 p-4 relative"
@@ -59,11 +64,11 @@
 		</template>
 	</div>
 
-	<div class="fixed bottom-0 left-0 w-full p-4 space-y-2"
-		id="keyboard"
-		class="">
+	<div class="fixed bottom-0 left-0 w-full p-2 space-y-2"
+		id="keyboard">
 		<div class="flex items-center justify-center space-x-2">
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['q'] === true,
 					'bg-orange-500': letters['q'] == 'almost',
@@ -73,7 +78,8 @@
 				@click="input('q')">
 				q
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['w'] === true,
 					'bg-orange-500': letters['w'] == 'almost',
@@ -83,7 +89,8 @@
 				@click="input('w')">
 				w
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['e'] === true,
 					'bg-orange-500': letters['e'] == 'almost',
@@ -93,7 +100,8 @@
 				@click="input('e')">
 				e
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['r'] === true,
 					'bg-orange-500': letters['r'] == 'almost',
@@ -103,7 +111,8 @@
 				@click="input('r')">
 				r
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['t'] === true,
 					'bg-orange-500': letters['t'] == 'almost',
@@ -113,7 +122,8 @@
 				@click="input('t')">
 				t
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['y'] === true,
 					'bg-orange-500': letters['y'] == 'almost',
@@ -123,7 +133,8 @@
 				@click="input('y')">
 				y
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['u'] === true,
 					'bg-orange-500': letters['u'] == 'almost',
@@ -133,7 +144,8 @@
 				@click="input('u')">
 				u
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['i'] === true,
 					'bg-orange-500': letters['i'] == 'almost',
@@ -143,7 +155,8 @@
 				@click="input('i')">
 				i
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['o'] === true,
 					'bg-orange-500': letters['o'] == 'almost',
@@ -153,7 +166,8 @@
 				@click="input('o')">
 				o
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['p'] === true,
 					'bg-orange-500': letters['p'] == 'almost',
@@ -165,7 +179,8 @@
 			</button>
 		</div>
 		<div class="flex items-center justify-center space-x-2">
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['a'] === true,
 					'bg-orange-500': letters['a'] == 'almost',
@@ -175,7 +190,8 @@
 				@click="input('a')">
 				a
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['s'] === true,
 					'bg-orange-500': letters['s'] == 'almost',
@@ -185,7 +201,8 @@
 				@click="input('s')">
 				s
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['d'] === true,
 					'bg-orange-500': letters['d'] == 'almost',
@@ -195,7 +212,8 @@
 				@click="input('d')">
 				d
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['f'] === true,
 					'bg-orange-500': letters['f'] == 'almost',
@@ -205,7 +223,8 @@
 				@click="input('f')">
 				f
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['g'] === true,
 					'bg-orange-500': letters['g'] == 'almost',
@@ -215,7 +234,8 @@
 				@click="input('g')">
 				g
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['h'] === true,
 					'bg-orange-500': letters['h'] == 'almost',
@@ -225,7 +245,8 @@
 				@click="input('h')">
 				h
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['j'] === true,
 					'bg-orange-500': letters['j'] == 'almost',
@@ -235,7 +256,8 @@
 				@click="input('j')">
 				j
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['k'] === true,
 					'bg-orange-500': letters['k'] == 'almost',
@@ -245,7 +267,8 @@
 				@click="input('k')">
 				k
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['l'] === true,
 					'bg-orange-500': letters['l'] == 'almost',
@@ -257,11 +280,12 @@
 			</button>
 		</div>
 		<div class="flex items-center justify-center space-x-2">
-			<button class="bg-gray-600 text-white text-xl w-16 h-16"
+			<button class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-16 h-16"
 				@click="enter()">
 				enter
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['z'] === true,
 					'bg-orange-500': letters['z'] == 'almost',
@@ -271,7 +295,8 @@
 				@click="input('z')">
 				z
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['x'] === true,
 					'bg-orange-500': letters['x'] == 'almost',
@@ -281,7 +306,8 @@
 				@click="input('x')">
 				x
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['c'] === true,
 					'bg-orange-500': letters['c'] == 'almost',
@@ -291,7 +317,8 @@
 				@click="input('c')">
 				c
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['v'] === true,
 					'bg-orange-500': letters['v'] == 'almost',
@@ -301,7 +328,8 @@
 				@click="input('v')">
 				v
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['b'] === true,
 					'bg-orange-500': letters['b'] == 'almost',
@@ -311,7 +339,8 @@
 				@click="input('b')">
 				b
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['n'] === true,
 					'bg-orange-500': letters['n'] == 'almost',
@@ -321,7 +350,8 @@
 				@click="input('n')">
 				n
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-10 h-16 flex items-center justify-center"
 				:class="{
 					'bg-green-500': letters['m'] === true,
 					'bg-orange-500': letters['m'] == 'almost',
@@ -331,7 +361,8 @@
 				@click="input('m')">
 				m
 			</button>
-			<button class="bg-gray-600 text-white text-xl w-16 h-16 flex items-center justify-center"
+			<button
+				class="p-1 rounded-sm text-xs bg-gray-600 text-white text-xl w-16 h-16 flex items-center justify-center"
 				@click="backspace()">
 				<svg xmlns="http://www.w3.org/2000/svg"
 					class="h-6 w-6"
@@ -348,6 +379,7 @@
 	</div>
 
 	<div x-show="endGame"
+		x-cloak
 		class="fixed h-screen w-screen top-0 left-0 bg-slate-900 bg-opacity-90 flex flex-col space-y-12 items-center justify-center text-white">
 		<div class="bg-gray-900 p-8 rounded-lg shadow-lg text-center max-w-lg">
 			<p class="text-5xl font-bold"

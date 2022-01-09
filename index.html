@@ -347,10 +347,10 @@
 	<div x-show="endGame"
 		class="fixed h-screen w-screen top-0 left-0 bg-slate-900 bg-opacity-90 flex flex-col space-y-12 items-center justify-center text-white">
 		<div class="bg-gray-900 p-8 rounded-lg shadow-lg text-center max-w-lg">
-			<span class="text-5xl font-bold"
-				x-show="won">You Win!</span>
-			<span class="text-5xl font-bold"
-				x-show="!won">Game Over</span>
+			<p class="text-5xl font-bold"
+				x-show="won">You Win!</p>
+			<p class="text-5xl font-bold"
+				x-show="!won">Game Over</p>
 			<p class="text-2xl mt-8 font-bold"
 				x-text="word"
 				x-show="!won"></p>
@@ -476,8 +476,6 @@
 					for (letter of this.tiles[this.activeRow].letters) {
 						let current = letter.value;
 
-
-
 						if (letter.value === this.word.charAt(i)) {
 							letter.state = true;
 							this.letters[current] = true;
@@ -580,7 +578,6 @@
 							return response.json()
 						})
 						.then(data => this.word = data.words[Math.floor(Math.random() * data.words.length)])
-						.then(() => 
 				},
 
 				getDefinition() {
@@ -590,13 +587,12 @@
 							return response.json()
 						})
 						.then(data => this.definition = data[0].shortdef[0])
-						.then(() => 
 				},
 
 				init() {
 					this.tiles = this.tilesTemplate;
 					this.getWords();
-
+					console.log("what are you looking in here for, cheater?");
 				}
 			}));
 		});

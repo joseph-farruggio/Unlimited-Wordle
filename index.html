@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Unlimited Wordle</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script> -->
 	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style>
@@ -437,6 +438,7 @@
 				endGame: false,
 				won: false,
 				word: null,
+				wordList: [],
 				definition: "",
 				wordList: [],
 				activeRow: 0,
@@ -519,6 +521,7 @@
 				inputCounter: 0,
 				score: 0,
 
+				// Submit a letter to the active row
 				input(letter) {
 					if (this.inputCounter < 5) {
 						this.tiles[this.activeRow].letters[this.inputCounter].value = letter;
@@ -526,6 +529,7 @@
 					}
 				},
 
+				// Delete the last letter
 				backspace() {
 					if (this.inputCounter != 0) {
 						this.tiles[this.activeRow].letters[this.inputCounter - 1].value =
@@ -534,14 +538,17 @@
 					}
 				},
 
+				// Submit the word
 				enter() {
 					if (this.inputCounter === 5) {
-						this.validateRow();
+						this.validateWord();
 					}
 				},
 
-				validateRow() {
+				// 
+				validateWord() {
 					let i = 0;
+
 					for (letter of this.tiles[this.activeRow].letters) {
 						let current = letter.value;
 
@@ -637,16 +644,22 @@
 						}
 					];
 					Object.keys(this.letters).forEach((i) => this.letters[i] = null);
-					this.getWords();
+					this.setWord();
 				},
 
-				getWords() {
-					fetch('./words.json')
-						.then(response => {
-							if (!response.ok) alert(`Something went wrong: ${response.status} - ${response.statusText}`)
-							return response.json()
-						})
-						.then(data => this.word = data.words[Math.floor(Math.random() * data.words.length)])
+				async getWords() {
+					const response = await fetch('./words.json');
+					return response.json();
+				},
+
+				async setWordList() {
+					let response = await this.getWords();
+					this.wordList = response.words;
+					this.setWord();
+				},
+
+				setWord() {
+					this.word = this.wordList[Math.floor(Math.random() * this.wordList.length)]
 				},
 
 				getDefinition() {
@@ -660,7 +673,7 @@
 
 				init() {
 					this.tiles = this.tilesTemplate;
-					this.getWords();
+					this.setWordList();
 					console.log("what are you looking in here for, cheater?");
 				}
 			}));
